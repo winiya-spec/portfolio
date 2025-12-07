@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>포트폴리오 모바일 목업 + 카테고리</title>
+
+<!-- AOS CSS -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<style>
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  overflow: hidden;
+  background-color: #69492b;
+  position: relative; /* ::before 사용을 위해 */
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url(./images/shadow.png) no-repeat center/cover;
+  opacity: 0.7;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* 전체 컨테이너 */
+.container {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  z-index: 1; /* 그림자 위 */
+
+ 
+
+  /* 호버 애니메이션 */
+  transition: transform 0.8s cubic-bezier(0.4,0,0.2,1), box-shadow 0.5s ease;
+  cursor: pointer;
+}
+
+
+.container:hover {
+  transform: translateY(-10px) rotateX(1deg) rotateY(1deg);
+  
+}
+
+.sidebar li:nth-child(n+2):nth-child(-n+4):hover {
+  text-decoration: underline;
+}
+a {
+  color: #fff; 
+  text-decoration: none; 
+}
+
+
+/* 사이드 메뉴 */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-left: 3em;
+  background: #70543a4d;
+  padding: 40px;
+  border-radius: 20px;
+}
+
+.sidebar h3 {
+  color: #fff;
+  margin: 0;
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  font-size: 16px;
+  color: #fff;
+  padding: 5px 10px;
+  border-left: 3px solid transparent;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.sidebar li.active {
+  font-weight: bold;
+  border-left: 3px solid #fff;
+  color: #fff;
+}
+
+/* iPhone 목업 디자인 */
+.mockup-iphone {
+  width: 400px;
+  height: 750px;
+  background: linear-gradient(145deg, #1c1c1c, #2a2a2a);
+  border-radius: 38px;
+  padding: 20px 12px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+
+  box-shadow: 
+    -15px 10px 25px rgba(255,255,255,0.05),
+    10px 20px 30px rgba(0,0,0,0.2);
+
+  transition: transform 0.8s cubic-bezier(0.4,0,0.2,1), box-shadow 0.5s ease;
+}
+
+.mockup-iphone:hover {
+  transform: translateY(-15px) rotateX(3deg) rotateY(2deg);
+  box-shadow: 
+    -15px 10px 25px rgba(255,255,255,0.08),
+    10px 25px 40px rgba(0,0,0,0.25);
+}
+
+.mockup-iphone::before {
+  content: "";
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 110px;
+  height: 18px;
+  background: #111;
+  border-radius: 9px;
+  box-shadow: inset 0 2px 4px rgba(255,255,255,0.1);
+  z-index: 2;
+}
+
+/* 측면 버튼 */
+.mockup-iphone .power { position: absolute; top: 150px; right: -6px; width: 4px; height: 50px; background: linear-gradient(#555,#222); border-radius: 2px; }
+.mockup-iphone .volume-up { position: absolute; top: 150px; left: -6px; width: 4px; height: 25px; background: linear-gradient(#555,#222); border-radius: 2px; }
+.mockup-iphone .volume-down { position: absolute; top: 190px; left: -6px; width: 4px; height: 25px; background: linear-gradient(#555,#222); border-radius: 2px; }
+
+/* 화면 */
+.mockup-iphone .screen {
+  width: 100%;
+  height: 100%;
+  border-radius: 25px;
+  overflow: hidden;
+  background: linear-gradient(#fff,#f9f9f9);
+  position: relative;
+  z-index: 1;
+  box-shadow: inset 0 0 20px rgba(255,255,255,0.1);
+  transition: box-shadow 0.5s ease;
+}
+
+.mockup-iphone:hover .screen {
+  box-shadow: inset 0 0 30px rgba(255,255,255,0.2);
+}
+
+/* iframe */
+.mockup-iphone iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+
+
+
+/* 반응형 */
+@media(max-width: 900px){
+  .container {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .sidebar {
+    flex-direction: row;
+    gap: 15px;
+  }
+  .sidebar li {
+    border-left: none;
+    border-bottom: 2px solid transparent;
+  }
+  .sidebar li.active {
+    border-bottom: 2px solid #fff;
+  }
+}
+</style>
+</head>
+<body>
+
+  
+  <div data-aos="fade-right">
+  <div class="mockup-iphone">
+    <div class="power"></div>
+    <div class="volume-up"></div>
+    <div class="volume-down"></div>
+    <div class="screen">
+      <!-- name 속성 추가! -->
+      <iframe name="mockupFrame" src="https://arturaxis4.dothome.co.kr/crowngoose/"></iframe>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="sidebar">
+    <h3>MENU</h3>
+    <ul>
+      <li class="active">
+        <a href="https://arturaxis4.dothome.co.kr/crowngoose/" target="mockupFrame">Home</a>
+      </li>
+      <li>
+        <a href="https://arturaxis4.dothome.co.kr/crowngoose/brand.html" target="mockupFrame">Crownstory</a>
+      </li>
+      <li>
+        <a href="https://arturaxis4.dothome.co.kr/crowngoose/product.html" target="mockupFrame">Product</a>
+      </li>
+      <li>
+        <a href="https://arturaxis4.dothome.co.kr/crowngoose/login.html" target="mockupFrame">Login</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+<!-- AOS JS -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000,
+    easing: 'ease-in-out',
+    once: true,
+  });
+</script>
+
+</body>
+</html>

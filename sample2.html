@@ -1,0 +1,107 @@
+<header id="main-header">
+    <nav>
+        <ul class="menu">
+            <li><a href="#section1">HOME</a></li>
+            <li><a href="#section2">CROWNGOOSE</a></li>
+            <li><a href="#section3">HYUNDAI</a></li>
+            <li><a href="#section4">PAWLUX</a></li>
+            <li><a href="#section5">JAVER</a></li>
+        </ul>
+    </nav>
+</header>
+
+<style>
+/* 기본 헤더 스타일 */
+#main-header {
+    position: fixed;
+    top: -120px; /* 처음은 화면 위로 숨김 */
+    left: 0;
+    width: 100%;
+    height: 100px; 
+    background: rgba(30,30,30,0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    transition: all 0.4s ease;
+    box-shadow: none;
+}
+
+/* AOS 등장 효과용 클래스 */
+#main-header.active {
+    top: 0;
+}
+
+/* 스크롤 후 축소 효과 */
+#main-header.shrink {
+    height: 60px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+/* 메뉴 */
+.menu {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+/* 호버 밑줄 슬라이드 */
+.menu li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0%;
+    height: 2px;
+    background: #fff;
+    transition: width 0.3s ease;
+}
+
+.menu li a:hover::after {
+    width: 100%;
+}
+
+/* 활성화 메뉴 표시 */
+.menu li.active a::after {
+    width: 100%;
+}
+</style>
+
+<script>
+// 헤더 등장 애니메이션
+window.addEventListener('DOMContentLoaded', function() {
+    const header = document.getElementById('main-header');
+    setTimeout(() => {
+        header.classList.add('active');
+    }, 200); // 0.2초 후 부드럽게 등장
+});
+
+// 스크롤 시 헤더 높이 축소
+window.addEventListener('scroll', function() {
+    const header = document.getElementById('main-header');
+    if(window.scrollY > 50) {
+        header.classList.add('shrink');
+    } else {
+        header.classList.remove('shrink');
+    }
+});
+
+// 메뉴 클릭 시 활성화 표시
+const menuLinks = document.querySelectorAll('.menu li');
+menuLinks.forEach(link => {
+    link.addEventListener('click', function() {
+        menuLinks.forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+    });
+});
+</script>

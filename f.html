@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<style>
+#toTopBtn {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 30px;
+  height: 30px;
+  border: 2px solid rgba(194,158,110,0.7);
+  border-radius: 50%;              
+  background: rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+  display: none; /* 기본 숨김 */
+}
+
+#toTopBtn svg {
+  width: 14px;
+  height: 14px;
+}
+
+#toTopBtn:hover {
+  background: rgba(194,158,110,0.2);
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+  border-radius: 20%; /* 호버 시 육각형 느낌 */
+}
+</style>
+
+
+
+</head>
+<body>
+  <button id="toTopBtn">
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(194,158,110,0.9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="12" y1="19" x2="12" y2="5" />
+    <polyline points="5 12 12 5 19 12" />
+  </svg>
+</button>
+
+<script>
+// DOM이 준비되면 실행
+document.addEventListener("DOMContentLoaded", function() {
+  const toTopBtn = document.getElementById("toTopBtn");
+
+  // 스크롤 시 버튼 표시
+  window.addEventListener("scroll", () => {
+    // 풀페이지 구조에서는 window.scrollY 사용
+    if (window.scrollY > window.innerHeight * 0.5) { // 화면 절반 이상 내려가면
+      toTopBtn.style.display = "flex";
+    } else {
+      toTopBtn.style.display = "none";
+    }
+  });
+
+  // 버튼 클릭 시 풀페이지 최상단으로 이동
+  toTopBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+});
+</script>
+
+
+</body>
+</html>

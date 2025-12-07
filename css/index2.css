@@ -1,0 +1,132 @@
+@charset "utf-8";
+
+/* reset */
+body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: 'Jost', sans-serif; }
+a { text-decoration: none; color: inherit; }
+img { vertical-align: top; }
+
+/* body */
+header { position: fixed; left: 0; right: 0; top: 0; z-index: 100; padding: 10px; color: #696969; font-size: 14px; line-height: 1.4; font-weight: 400; letter-spacing: 0.12em; text-decoration: none; text-transform: uppercase; background-color: rgba(255,255,255,.6); }
+header nav ul { display: flex; }
+header nav ul li:first-child { color: #444; }
+header nav ul li { margin: 0 15px; }
+header nav ul li:hover { margin-top: -1px; }
+
+#bg { width: 100%; height: 100%; position: relative; }
+.intro_wrap { width: 100%; height: 100%; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+
+.intro_media article { width: 100%; height: 100%; position: absolute; top: 0px; left: 0px; z-index: 1; }
+.intro_media article video{ width: 100%; height: 100%; object-fit: cover; }
+
+.scroll_txt { position: absolute; bottom: 2vh; left: 50%; z-index: 999; transform: translateX(-50%); display: block; text-align: center; letter-spacing: 0; line-height: 2em; color: #bd8f65b7; font-weight: 900; font-family: 'Spoqa Han Sans', sans-serif; }
+.section h2 { display: none; font-size: 20px; }
+.port_list { margin-left: 4%; width: 55vw; height: auto; overflow: hidden; }
+.port_list img { max-width: 100%; height: auto; display: block; }
+.port_list img:hover { transition: all 0.5s linear; transform: scale(1.1); }
+.port_txt { width: 30%; height: 79%; background-color: rgba(255,255,255,0.1); box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3); position: absolute; top: 50%; left: 76%; transform: translate(-50%, -50%); }
+.title { font-weight: 600; letter-spacing: 0.12em; display: block; text-align: center; font-size: 2.5vw; margin-top: 90px; }
+.sub_title, .content_title { display: block; }
+.sub_title { height: 35px; line-height: 35px; text-align: center; font-size: 1.1vw; letter-spacing: 0.12em; font-weight:normal; }
+.color { margin: 5px; display: inline-block; width: 20px; height: 20px; border-radius: 100%; box-shadow: 2px 1px 3px rgba(0,0,0,.3); }
+.content_title { font-family: 'Spoqa Han Sans', sans-serif; margin-top: 20px; padding-left: 4.5vw; margin-bottom: 30px; font-size: 1.6vw; font-weight: 600; letter-spacing: -0.5px; }
+.content { font-family: 'Spoqa Han Sans', sans-serif; height: 100px; display: block; padding-left: 4.5vw; line-height: 1.8em; font-size: 0.9vw; }
+button { display: block; }
+.port_btn { font-family: 'Spoqa Han Sans', sans-serif; width: 21vw; height: 50px; line-height: 50px; margin: 0 auto; border: transparent; text-align: center; font-size: 0.9vw; margin-top: 2rem; }
+.port_btn a { display: block; }
+.pn_btn:hover { background-color: rgba(237, 146, 130, .25); transition: all 0.5s ease-in-out; color: #cb7640; }
+.port_notice { position: absolute; top:92vh; left: 6vw; font-family: 'Spoqa Han Sans', sans-serif; color: #fff; font-size: 0.8vw; }
+
+/* 크라운구스*/
+.crown_title { color: rgb(110, 90, 72); }
+.crown_sub_title { background-color: rgba(121, 88, 19, 0.25); color: rgb(110, 90, 72); }
+.crown_01 { margin-top: 30px; margin-left: 4.5vw; background: #8a6241; }
+.crown_02 { background: #b88f60; } 
+.crown_03 { background: #cab399; }
+.crown_content_title { color: rgb(110, 90, 72); }
+.crown_content { color: rgb(110, 90, 72); }
+.crown_btn { background-color: #695136; color: #fff; }
+.crown_btn:hover { background-color: rgba(161, 126, 74, 0.356); transition: all 0.5s ease-in-out; color: #523b19; }
+
+/* 현대자동차 */
+.hyundai_title { color: #9bc0df; }
+.hyundai_sub_title { background-color: rgba(122, 163, 218, 0.25); color: #9bc0df; }
+.hyundai_01 { margin-top: 30px; margin-left: 4.5vw; background: #222222; }
+.hyundai_02 { background: #1a5ca8; }
+.hyundai_03 { background: #e7e7e7; }
+.hyundai_content_title { color: #9bc0df; }
+.hyundai_content { color: #9bc0df; }
+.hyundai_btn { background-color: #3081c4; color: #fff; }
+.hyundai_btn:hover { background-color:  rgba(70, 127, 165, 0.692); transition: all 0.5s ease-in-out; color: #aedefd; }
+
+/* ... 나머지 기존 CSS 그대로 유지 ... */
+
+/* 디자인 리스트 */
+.design_wrap { width: 90%; margin: 0 auto; display:flex; flex-wrap: wrap; gap:0.5%; height: auto; }
+.design_list { display: flex; flex-direction:column; justify-content:space-between; flex-grow: 0; width:20%; height: 550px; gap:20px; border:1px solid #ebeaec; box-shadow:0px 2px 4px rgba(0,0,0,0.3); border-radius:16px; padding:20px; box-sizing: border-box; cursor: pointer;margin-top: 30px; }
+.design_img { display: flex; flex-grow: 0; overflow: hidden; background-color: #fff; height: 100%; }
+.design_img img { opacity: 0.7; object-fit: cover; display: block; }
+.design_img:hover img { opacity: 1; }
+.design_notice { top: 97vh; }
+.design_txt { color: #474747; text-transform: capitalize; }
+
+footer address { color: #666; padding: 15px; font-style: normal; text-align: center; margin-top: 8%; font-size: 12px; line-height: 14px; font-weight: 100; }
+
+/* 섹션 배경 */
+.section:nth-child(1) { background-color: #ffffff!important; }
+.section:nth-child(2) { background-color: #c4b49e!important; }
+.section:nth-child(3) { background-color: #222222!important; }
+.section:nth-child(4) { background-color: #7e5d42 !important; }
+.section:nth-child(5) { background-color: #1e2538!important; }
+.section:nth-child(6) { background-color: #272727!important; }
+.section:nth-child(7) { background-color: #c5c2c2 !important; }
+.section:nth-child(8) { background-color: #888682!important; }
+.section:nth-child(9) { background-color: #2a5240!important; }
+.section:nth-child(10) { background-color: #dbcfb3!important; }
+
+/* 커서 */
+.cursor { width: 12px; height: 12px; border-radius: 50%; background: #fff; position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); }
+.trail { width: 30px; height: 30px; border-radius: 50%; border: 2px solid #fff; position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9998; opacity: 0.5; transform: translate(-50%, -50%); }
+
+/* 텍스트 */
+.ppp { text-transform: uppercase; letter-spacing: 0.5em; border: 4px double rgba(105, 105, 105, 0.651); border-width: 4px 0; padding: 1.5em 0em; text-align: center; margin-top:2%; }
+.ppp span { font: 500 2.5em/1 "Oswald", sans-serif; letter-spacing: 0; padding: 0.25em 0 0.325em; display: block; margin: 0 auto; text-shadow: 0 0 80px rgba(255, 255, 255, 0.5); }
+
+/* 슬라이드 */
+.container { display: flex; flex-direction: column; justify-content: center; align-items: center; width: 2000px; height: 250px; margin: 0 auto; z-index: 10; margin-bottom: 2%; }
+h1 { margin-bottom: 45px; font-family: "Oswald", sans-serif; font-size: 44px; text-transform: uppercase; color: #424242; text-align: center; }
+.gallery-wrap { display: flex; flex-direction: row; width: 80%; height: 60vh; position: relative; z-index: 10; }
+.item { flex: 1 !important; height: 100% !important; background-position: center !important; background-size: cover !important; background-repeat: no-repeat !important; transition: flex 0.8s ease !important; }
+.item:hover { flex: 7 !important; }
+.item-1 { background-image: url("../images/26.png"); }
+.item-2 { background-image: url("../images/28.png"); }
+.item-3 { background-image: url("../images/29.png"); }
+.item-4 { background-image: url("../images/30.png"); }
+.item-5 { background-image: url("../images/31.png"); }
+
+/* ================== 스크롤 시 부드럽게 나타나는 애니메이션 ================== */
+.section,
+.port_list,
+.design_list,
+.gallery-wrap,
+.ppp,
+.title,
+.sub_title,
+.content_title,
+.content {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.section.active,
+.port_list.active,
+.design_list.active,
+.gallery-wrap.active,
+.ppp.active,
+.title.active,
+.sub_title.active,
+.content_title.active,
+.content.active {
+  opacity: 1;
+  transform: translateY(0);
+}
